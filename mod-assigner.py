@@ -14,4 +14,4 @@ for mod_name in folders:
             for text in desc:  # copies contents from descriptor.mod
                 mod_f.write(text)  # and pastes them in mod_name.mod
             mod_f.write("\n" 'path = "mod/' + mod_name + '"')  # writes the path to the mod in your_game/mod dir
-        shutil.move(mod_name + ".mod", py_dir + "/mod-files")
+        shutil.move(mod_name + ".mod", "mod-files")
