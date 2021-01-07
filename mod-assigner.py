@@ -14,6 +14,7 @@ for mod_name in folders:
         path2 = mods_path + "/" + str(mod_name)
         with open(path2 + "/descriptor.mod", "r") as desc:
             for text in desc:  # copies contents from descriptor.mod
-                mod_f.write(text)  # and pastes them in mod_name.mod
+                if not text.strip("\n").startswith("path"):  # removes already existing paths
+                    mod_f.write(text)  # pastes contents to mod_name.mod
             mod_f.write("\n" 'path = "mod/' + mod_name + '"')  # writes the path to the mod in your_game/mod dir
         shutil.move(mod_name_mod, os.path.join(destination, os.path.basename(mod_name_mod)))
